@@ -4,7 +4,7 @@ class Calculator:
 
     def __init__(self, root):
         self.root = root
-        self.root .title("Calculator")
+        self.root.title("Calculator")
         self.root.geometry("615x680+400+100")
         self.root.config(bg = 'cadet blue')
 
@@ -45,18 +45,18 @@ class Calculator:
         self.create_button ("/", 5,3,)
         
 
-        def create_button(self, text, row, column):
-            btnWidget = Button(self.WidgetFrame, text=text, width =6, height=2, bd=4, bg='cadet blue', font =('arial',20,'bold'), anchor='e')
-            btnWidget.grid(row =row, column =column, padx=5, pady =5)
+    def create_button(self, text, row, column):
+        btnWidget = Button(self.WidgetFrame, text=text, width =6, height=2, bd=4, bg='cadet blue', font =('arial',20,'bold'), anchor='e')
+        btnWidget.grid(row =row, column =column, padx=5, pady =5)
 
-        def button_click(self, text):
+    def button_click(self, text):
 
-            if text == ".":
-                self.input_button = self.input_button[:-1]
-            elif text == "CE":
-                self.input_button =""
-            elif text == "C":
-                self.input_button =""
+        if text == ".":
+            self.input_button = self.input_button[:-1]
+        elif text == "CE":
+            self.input_button =""
+        elif text == "C":
+            self.input_button =""
 
 root = Tk()
 App = Calculator(root)
