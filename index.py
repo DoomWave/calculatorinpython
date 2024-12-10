@@ -1,12 +1,15 @@
 from tkinter import*
 
+
 class Calculator:
 
     def __init__(self, root):
+
         self.root = root
         self.root.title("Calculator")
         self.root.geometry("615x680+400+100")
         self.root.config(bg = 'cadet blue')
+
 
         self.MainFrame = Frame(self.root , bd =18, width = 600, height=670, relief=RIDGE, bg = 'powder blue')
         self.MainFrame.grid()
@@ -46,7 +49,8 @@ class Calculator:
         
 
     def create_button(self, text, row, column):
-        btnWidget = Button(self.WidgetFrame, text=text, width =6, height=2, bd=4, bg='cadet blue', font =('arial',20,'bold'), anchor='e')
+        btnWidget = Button(self.WidgetFrame, text=text, width =6, height=2, bd=4, bg='cadet blue', font =('arial',20,'bold'), anchor='e',
+                            command =lambda: self.button_click(text))
         btnWidget.grid(row =row, column =column, padx=5, pady =5)
 
     def button_click(self, text):
@@ -57,6 +61,19 @@ class Calculator:
             self.input_button =""
         elif text == "C":
             self.input_button =""
+
+        elif text == "=":
+            try: 
+                self.input_button = str(eval(self.input_button))
+            except: 
+                self.input_button ="Error"
+        elif text == "±":
+            self.input_button = str(float(self.input_button))
+        else:
+            self.input_button  += text
+        self.lblDisplay.config(text = self.input_button)
+
+
 
 root = Tk()
 App = Calculator(root)
