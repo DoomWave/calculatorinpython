@@ -13,7 +13,37 @@ class Calculator:
         self.MainFrame.grid()
         self.WidgetFrame = Frame(self.MainFrame , bd =18, width = 590, height=660, relief=RIDGE, bg = 'cadet blue')
         self.WidgetFrame.grid()
+
+        self.lblDisplay = Label(self.WidgetFrame, width =30, height=2, bg='white', font =('arial',20,'bold'), anchor='e')
+        self.lblDisplay.grid (row =0, column=0, columnspan=4, padx =10, pady=10)
         
+        self.input_button = ""
+
+        self.create_button ("←", 1,0,)
+        self.create_button ("CE", 1,1,)
+        self.create_button ("C", 1,2,)
+        self.create_button ("±", 1,3,)
+
+        self.create_button ("7", 2,0,)
+        self.create_button ("8", 2,1,)
+        self.create_button ("9", 2,2,)
+        self.create_button ("+", 2,3,)
+
+        
+        self.create_button ("4", 3,0,)
+        self.create_button ("5", 3,1,)
+        self.create_button ("6", 3,2,)
+        self.create_button ("-", 3,3,)
+
+        self.create_button ("1", 4,0,)
+        self.create_button ("2", 4,1,)
+        self.create_button ("3", 4,2,)
+        self.create_button ("*", 4,3,)
+
+        self.create_button ("0", 5,0,)
+        self.create_button (".", 5,1,)
+        self.create_button ("=", 5,2,)
+        self.create_button ("/", 5,3,)
         
 root = Tk()
 App = Calculator(root)
